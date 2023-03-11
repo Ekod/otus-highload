@@ -2,7 +2,7 @@ package services
 
 import (
 	"context"
-	"github.com/Ekod/highload-otus/domain/users"
+	"github.com/Ekod/otus-highload/domain/users"
 )
 
 type Services struct {

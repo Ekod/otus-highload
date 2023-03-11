@@ -1,10 +1,10 @@
 package controllers
 
 import (
-	"github.com/Ekod/highload-otus/domain/users"
-	"github.com/Ekod/highload-otus/internal/transport/services"
-	"github.com/Ekod/highload-otus/utils/errors"
-	"github.com/Ekod/highload-otus/utils/security"
+	"github.com/Ekod/otus-highload/domain/users"
+	"github.com/Ekod/otus-highload/internal/transport/services"
+	"github.com/Ekod/otus-highload/utils/errors"
+	"github.com/Ekod/otus-highload/utils/security"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 	"net/http"

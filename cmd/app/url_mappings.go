@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/Ekod/highload-otus/internal/transport/controllers"
-	"github.com/Ekod/highload-otus/internal/transport/controllers/ping"
-	"github.com/Ekod/highload-otus/internal/transport/services"
-	"github.com/Ekod/highload-otus/middlewares"
+	"github.com/Ekod/otus-highload/internal/transport/controllers"
+	"github.com/Ekod/otus-highload/internal/transport/controllers/ping"
+	"github.com/Ekod/otus-highload/internal/transport/services"
+	"github.com/Ekod/otus-highload/middlewares"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"

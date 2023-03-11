@@ -4,9 +4,9 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	"github.com/Ekod/highload-otus/domain"
-	"github.com/Ekod/highload-otus/domain/users"
-	"github.com/Ekod/highload-otus/utils/errors"
+	"github.com/Ekod/otus-highload/domain"
+	"github.com/Ekod/otus-highload/domain/users"
+	"github.com/Ekod/otus-highload/utils/errors"
 )
 
 const (

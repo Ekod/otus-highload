@@ -1,8 +1,8 @@
 package middlewares
 
 import (
-	"github.com/Ekod/highload-otus/utils/errors"
-	"github.com/Ekod/highload-otus/utils/security"
+	"github.com/Ekod/otus-highload/utils/errors"
+	"github.com/Ekod/otus-highload/utils/security"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strings"

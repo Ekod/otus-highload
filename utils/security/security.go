@@ -2,7 +2,7 @@ package security
 
 import (
 	"fmt"
-	"github.com/Ekod/highload-otus/utils/errors"
+	"github.com/Ekod/otus-highload/utils/errors"
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"

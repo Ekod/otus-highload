@@ -2,9 +2,9 @@ package user_service
 
 import (
 	"context"
-	"github.com/Ekod/highload-otus/domain"
-	"github.com/Ekod/highload-otus/domain/users"
-	"github.com/Ekod/highload-otus/utils/security"
+	"github.com/Ekod/otus-highload/domain"
+	"github.com/Ekod/otus-highload/domain/users"
+	"github.com/Ekod/otus-highload/utils/security"
 )
 
 type UserRepository interface {
