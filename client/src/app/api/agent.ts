@@ -3,7 +3,7 @@ import {User} from "../models/user";
 import {toast} from "react-toastify";
 import {router} from "../router/Routes";
 
-axios.defaults.baseURL = "http://localhost:5000/api"
+axios.defaults.baseURL = process.env.REACT_APP_BASE_API_URL
 
 // axios.interceptors.request.use(config => {
 //     const token = store.commonStore.token;
