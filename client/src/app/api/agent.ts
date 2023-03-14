@@ -1,5 +1,5 @@
 import axios, {AxiosError, AxiosResponse} from "axios";
-import {User} from "../models/user";
+import {User, UserForm} from "../models/user";
 import {toast} from "react-toastify";
 import {router} from "../router/Routes";
 
@@ -16,13 +16,16 @@ axios.interceptors.response.use(async response => {
 }, (error: AxiosError) => {
     const { data, status, config } = error.response as AxiosResponse;
     switch (status) {
+        case 400:
+            toast.error('bad request')
+            break;
         case 403:
             toast.error('forbidden')
+            router.navigate('/login');
             break;
         case 404:
             router.navigate('/not-found');
             break;
-
     }
     return Promise.reject(error);
 })
@@ -38,8 +41,13 @@ const Users = {
     list: () => requests.get<User[]>("/users")
 }
 
+const Account = {
+    login: (user: UserForm) => requests.post<User>("/login", user),
+    register: (user: UserForm) => requests.post<User>("/register", user),
+}
+
 const agent = {
-    Users
+    Users, Account
 }
 
 export default agent

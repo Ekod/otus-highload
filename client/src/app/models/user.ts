@@ -9,3 +9,8 @@ export interface User {
     email: string
     token: string
 }
+
+export interface UserForm {
+    email: string
+    password: string
+}

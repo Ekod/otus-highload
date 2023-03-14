@@ -7,8 +7,8 @@ export default function HomePage(){
             <Container text>
                 <Header as="h1" inverted>
                     <Image size="massive" src="/assets/logo.png" alt="logo" style={{ marginBottom: 12 }}/>
-                    <Header as='h2' inverted content="Welcome to Social" />
                 </Header>
+                <Header as='h2' inverted content="Welcome to Highload Social" />
                 <Button as={Link} to="/login" size='huge' inverted>
                     Login!
                 </Button>

@@ -1,9 +1,10 @@
 import {makeAutoObservable} from "mobx";
-import {User} from "../models/user";
+import {User, UserForm} from "../models/user";
 import agent from "../api/agent";
 
 export default class UserStore {
     users: User[] = []
+    user: User | null = null
 
     constructor() {
         makeAutoObservable(this)
@@ -18,8 +19,22 @@ export default class UserStore {
         }
     }
 
+    get isLoggedIn() {
+        return !!this.user
+    }
 
     setUsers = (users: User[]) => {
         this.users = users
     }
+
+    login = async (creds: UserForm) => {
+        try {
+            const user = await agent.Account.login(creds)
+        } catch (e) {
+            throw e
+        }
+    }
 }
+
+
+
