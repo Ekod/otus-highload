@@ -37,3 +37,7 @@ func Open(cfg Config) (*sql.DB, error) {
 
 	return db, nil
 }
+
+func ConnectToDb() {
+
+}

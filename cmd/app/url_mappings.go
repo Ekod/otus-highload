@@ -42,7 +42,7 @@ func APIMux(cfg APIMuxConfig) *gin.Engine {
 	{
 		apiGroup.POST("/login", userHandlers.LoginUser)
 		apiGroup.POST("/register", userHandlers.RegisterUser)
-		apiGroup.GET("/users", middleware.CheckToken, userHandlers.GetUsers)
+		apiGroup.GET("/users", userHandlers.GetUsers)
 		apiGroup.GET("/info", middleware.CheckToken, userHandlers.GetCurrentUser)
 		apiGroup.GET("/search-users", middleware.CheckToken, userHandlers.GetUsersByFullName)
 	}
