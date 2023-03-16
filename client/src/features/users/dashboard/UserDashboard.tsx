@@ -1,21 +1,26 @@
 import React, {useEffect} from "react";
-import {Grid} from "semantic-ui-react";
-import ActivityList from "./UserList";
+import {Container} from "semantic-ui-react";
 import {useStore} from "../../../app/stores/store";
 import {observer} from "mobx-react-lite";
+import UsersList from "./UserList";
+import Features from "./features/Features";
 
 function UserDashboard() {
     const {userStore} = useStore()
     useEffect(() => {
         userStore.loadUsers()
+        userStore.getFriends();
     }, [userStore])
 
     return (
-        <Grid>
-            <Grid.Column width="10">
-                <ActivityList users={userStore.users}/>
-            </Grid.Column>
-        </Grid>
+        <>
+            <Container text>
+                <Features />
+                {userStore.users.length > 0 ? <UsersList /> : null}
+            </Container>
+
+        </>
+
     )
 }
 

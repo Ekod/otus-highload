@@ -1,19 +1,43 @@
-import {Container, Segment, Header, Image, Button} from "semantic-ui-react";
+import {Button, Container, Header, Image, Segment} from "semantic-ui-react";
 import {Link} from "react-router-dom";
+import {observer} from "mobx-react-lite";
+import {useStore} from "../../app/stores/store";
+import LoginForm from "../users/LoginForm";
+import RegisterForm from "../users/RegsiterForm";
+import React from "react";
 
-export default function HomePage(){
+
+export default observer(function HomePage() {
+    const {userStore, modalStore} = useStore()
     return (
         <Segment inverted textAlign="center" vertical className="masthead">
             <Container text>
                 <Header as="h1" inverted>
-                    <Image size="massive" src="/assets/logo.png" alt="logo" style={{ marginBottom: 12 }}/>
+                    <Image size="massive" src="/assets/logo.png" alt="logo" style={{marginBottom: 12}}/>
                 </Header>
-                <Header as='h2' inverted content="Welcome to Highload Social" />
-                <Button as={Link} to="/login" size='huge' inverted>
-                    Login!
-                </Button>
+                {userStore.isLoggedIn ?
+                    <>
+                        <Header as='h2' inverted content="Welcome to Highload Social"/>
+                        <Button as={Link} to="/users" size='huge' inverted>
+                            Go to Social!
+                        </Button>
+                    </>
+                    :
+                    <>
+                        <Header as='h2' inverted content="Highload Social"/>
+
+                        <Button onClick={() => modalStore.openModal(<LoginForm/>)} size='huge' inverted>
+                            Login!
+                        </Button>
+                        <Button onClick={() => modalStore.openModal(<RegisterForm/>)} size='huge' inverted>
+                            Register
+                        </Button>
+                    </>
+
+                }
+
             </Container>
 
         </Segment>
     )
-}
+})

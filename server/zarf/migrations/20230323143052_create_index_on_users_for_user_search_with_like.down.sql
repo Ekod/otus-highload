@@ -1,0 +1,1 @@
+DROP INDEX search_users_idx ON users;

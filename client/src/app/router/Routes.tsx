@@ -2,6 +2,7 @@ import {createBrowserRouter, RouteObject} from "react-router-dom";
 import App from "../layout/App";
 import UserDashboard from "../../features/users/dashboard/UserDashboard";
 import LoginForm from "../../features/users/LoginForm";
+import Profile from "../../features/users/Profile";
 
 export const routes: RouteObject[] = [
     {
@@ -15,6 +16,10 @@ export const routes: RouteObject[] = [
             {
                 path: "login",
                 element: <LoginForm/>
+            },
+            {
+                path: "profile",
+                element: <Profile/>
             }
         ]
     }

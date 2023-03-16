@@ -1,11 +1,14 @@
+include .env
+export
+
 up:
-	docker compose -f zarf/docker-compose.yaml up -d --build
-
-migrate:
-	migrate -path zarf/migrations -database "mysql://root:password@tcp(localhost)/social" up
-
-run:
-	go run ./cmd/app/
+	docker compose -f ./docker-compose.yaml up -d --build
 
 down:
-	docker compose -f zarf/docker-compose.yaml down --remove-orphans
+	docker compose -f ./docker-compose.yaml down --remove-orphans
+
+down-v:
+	docker compose -f ./docker-compose.yaml down --remove-orphans --volumes
+
+seed:
+	(cd server && go run ./cmd/scripts/. -n $(RECORDS))

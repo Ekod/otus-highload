@@ -1,16 +1,15 @@
 import React from "react";
 import {User} from "../../../app/models/user";
-import {Item, Segment} from "semantic-ui-react";
+import {Button, Item, Segment} from "semantic-ui-react";
+import {observer} from "mobx-react-lite";
+import {useStore} from "../../../app/stores/store";
 
-interface Props {
-    users: User[]
-}
-
-export default function ActivityList({users}: Props) {
+export default observer(function UsersList() {
+    const {userStore} = useStore()
     return (
         <Segment>
             <Item.Group divided>
-                {users.map(user => (
+                {userStore.users.map(user => (
                     <Item key={user.id}>
                         <Item.Content>
                             <Item.Header as="a">{user.firstName} {user.lastName}</Item.Header>
@@ -21,10 +20,29 @@ export default function ActivityList({users}: Props) {
                                 <div>City: {user.city}</div>
                                 <div>Interests: {user.interests}</div>
                             </Item.Description>
+                            <Item.Extra>
+                                {userStore.isFriend(user.id) ? (
+                                    <>
+                                        <Button
+                                            floated="right"
+                                            content="Удалить из Друзей"
+                                            color="red"
+                                            onClick={() => userStore.removeFriend(user.id)}
+                                        />
+                                    </>
+                                ) : (
+                                    <Button
+                                        floated="right"
+                                        content="Подружиться"
+                                        color="blue"
+                                        onClick={() => userStore.becomeFriends(user.id)}
+                                    />
+                                )}
+                            </Item.Extra>
                         </Item.Content>
                     </Item>
                 ))}
             </Item.Group>
         </Segment>
     )
-}
+})
